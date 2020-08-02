@@ -1,5 +1,6 @@
 import pandas as pd
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
+import flask
 import pickle
 import pyrebase
 from collections import OrderedDict
@@ -27,7 +28,7 @@ app = Flask(__name__)
 
 def predict():
     # get data
-    data = request.get_json(force=True)
+    data = flask.request.get_json(force=True)
     db = firebase.database()
     u_id="Utkarsh5470"
     game_data_dict = db.child("users").child(u_id).child("test").child("game_score").get()
