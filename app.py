@@ -33,7 +33,7 @@ def predict():
     u_id="Utkarsh5470"
     game_data_dict = db.child("users").child(u_id).child("test").child("game_score").get()
     dict1=game_data_dict.val()
-    
+    print(dict1)
     
     d1=dict(OrderedDict(dict1))
     l1=list(d1.keys())
