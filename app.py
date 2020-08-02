@@ -5,7 +5,7 @@ import pickle
 import pyrebase
 from collections import OrderedDict
 import urllib
-from firebase import Firebase
+import json
 
 config={
     "apiKey": "AIzaSyDeFLJFr2aqcAK40nZOmBtEDNYij49yyAk",
@@ -17,7 +17,7 @@ config={
     "appId": "1:756073662506:web:2f4cb2e5e93f1d4b9d1b53"
 }
 firebase=pyrebase.initialize_app(config)
-firebase1 = Firebase(config)
+
 
 model = pickle.load(open('model.pkl','rb'))
 
@@ -32,21 +32,7 @@ def predict():
     data = flask.request.get_json(force=True)
     u_id="Utkarsh5470"
     
-    db1 = firebase.database()
-    users = db1.child("users").child(u_id).child("test").child("game_score").get()
-    print("this is using firebase ",users.val())
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
     db = firebase.database()
     game_data_dict = db.child("users").child(u_id).child("test").child("game_score").get()
     dict1=game_data_dict.val()
