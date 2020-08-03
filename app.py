@@ -28,8 +28,9 @@ app = Flask(__name__)
 @app.route('/', methods=['POST'])
 
 def predict():
+    print("server started")
     # get data
-    data = flask.request.get_json(force=True)
+    #data = flask.request.get_json(force=True)
     u_id="Utkarsh5470"
     
    
