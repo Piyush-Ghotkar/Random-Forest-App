@@ -30,8 +30,10 @@ app = Flask(__name__)
 def predict():
     print("server started")
     # get data
-    #data = flask.request.get_json(force=True)
-    u_id="Utkarsh5470"
+    data = flask.request.get_json(force=True)
+    data.update((x, [y]) for x, y in data.items())
+    data_df = pd.DataFrame.from_dict(data)
+    u_id=str(data_df["u_id"].iloc[0])
     
    
     db = firebase.database()
